@@ -23,11 +23,20 @@
   <body>
     <span ng-view></span>
 
+    <form id="shareForm" role="form">
+      <div class="form-group">
+        <label for="url" class="sr-only">Meme Urli</label>
+        <input type="url" class="form-control" id="url" placeholder="Meme Urli" required>
+      </div>
+      <button type="button" class="btn btn-default pull-right">Yakında...</button>
+    </form>
+
     <div class="container">
       <div class="header">
         <h1 class="text-muted inline">Meme İzle</h1>
         <h3 class="inline">|</h3>
         <h4 class="inline">Memeler baş kaldırmış kavuşmuyor düğmeler</h4>
+        <button id="memeShare" class="btn btn-default pull-right" data-toggle="popover" title="Meme yolla buraya koyalım">Meme Yolla</button>
       </div>
 
       <div class="jumbotron" ng-controller="meme.ctrl.content">
@@ -56,7 +65,7 @@
         <div class="row">
 
           <div class="col-lg-4 col-lg-offset-4 centered">
-            <button ng-bind="loading ? 'Geliyooo' : 'Başka abla getir'" id="actionBtn" class="btn btn-primary btn-lg" ng-click="anotherSister($event)" ng-disabled="loading">
+            <button ng-bind="loading ? 'Geliyooor' : 'Başka abla getir'" id="actionBtn" class="btn btn-primary btn-lg" ng-click="anotherSister($event)" ng-disabled="loading">
               Başka abla getir
             </button>
           </div>
@@ -88,6 +97,7 @@
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-route.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
     <script src="meme.js"></script>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

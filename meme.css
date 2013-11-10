@@ -33,3 +33,11 @@
 #meme{
   min-height: 400px;
 }
+
+#shareForm{
+  display: none;
+}
+
+.popover.bottom {
+  padding-bottom: 10px;
+}

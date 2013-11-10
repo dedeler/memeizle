@@ -1,3 +1,12 @@
+$(function() {
+  $('#memeShare').popover({
+  html:true,
+  placement:'bottom',
+  content: $('#shareForm').html()
+  })
+});
+
+
 angular.module('meme', ['ngRoute'])
 
 .constant('DB_URL', 'https://api.mongolab.com/api/1/databases/memetabani/collections/memeler?apiKey=CKUizEl63826KYWjJrh6GQuRjHIsWpOs&q={"id":{$ID}}')
