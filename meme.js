@@ -92,12 +92,16 @@ function($scope, $rootScope, $q, $location, db, random) {
 
   //do not try on your project, this is dirty as the site...
   $( document ).off('keypress').on('keypress', function(e){
+    console.log(e.keyCode);
     if(e.keyCode == 32){//space key
       $scope.$apply(function() {
         $scope.anotherSister();
       });
       e.preventDefault();
       return false;
+    }
+    else if(e.keyCode == 120 || e.keyCode == 88){//x or X key
+      $('#cover').toggle();
     }
   });
 
