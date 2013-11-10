@@ -1,9 +1,29 @@
 $(function() {
+  // meh this is faster to write in jQuery, sorry AngularJs...
   $('#memeShare').popover({
-  html:true,
-  placement:'bottom',
-  content: $('#shareForm').html()
-  })
+    html:true,
+    placement:'bottom',
+    content: $('#shareForm').html()
+  });
+
+  $('body').on('click', '.popover #suggestBtn', function() {
+    var data = {
+      url: $('.popover input').val()
+    };
+    var ENDPOINT = 'https://api.mongolab.com/api/1/databases/memetabani/collections/memeadayi?apiKey=CKUizEl63826KYWjJrh6GQuRjHIsWpOs';
+    $.ajax({
+      type: "POST",
+      url: ENDPOINT,
+      data: JSON.stringify(data),
+      dataType: 'json',
+      contentType: 'application/json',
+      success: function(response, status) {
+        $('.popover input').val('');
+        $('#memeShare').popover('hide');
+        alert('Teşekkürler, bi bakalım biz sizi ararız...');
+      }
+    });
+  });
 });
 
 
