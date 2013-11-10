@@ -1,0 +1,35 @@
+#footer{
+  text-align: center;
+}
+
+#footer, #footer a, #footer a:visited {
+  color: gray;
+}
+
+#footer div{
+  font-size: 0.9em;
+}
+
+#dedeler{
+  margin-left: -115px;
+}
+
+.centered{
+  text-align: center;
+}
+
+.header{
+  padding: 20px 0 15px 0;
+}
+
+.inline{
+  display: inline;
+}
+
+#actionBtn{
+  margin-top: 10px;
+}
+
+#meme{
+  min-height: 400px;
+}
