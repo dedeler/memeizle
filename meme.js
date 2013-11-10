@@ -90,6 +90,16 @@ function($scope, $rootScope, $q, $location, db, random) {
     }
   }, true);
 
+  //do not try on your project, this is dirty as the site...
+  $( document ).off('keypress').on('keypress', function(e){
+    if(e.keyCode == 32){//space key
+      $scope.$apply(function() {
+        $scope.anotherSister();
+      });
+      e.preventDefault();
+      return false;
+    }
+  });
 
   $scope.anotherSister = function(event) {
     $scope.loading = true;
