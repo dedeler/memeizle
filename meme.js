@@ -152,12 +152,10 @@ function ($scope, $rootScope, $routeParams, $location, $q, random, db) {
 }])
 
 .directive('ngDiscuss', ['$rootScope', '$location', function($rootScope, $location) {
-  // var disqusScript = "\x3Cscript type=\"text\x2Fjavascript\"\x3E\n \x2F* * * CONFIGURATION VARIABLES: THIS CODE IS ONLY AN EXAMPLE * * *\x2F\n var disqus_shortname = \'memeizle\';\n var disqus_identifier = \'IDENTIFIER\';\n var disqus_title = \'TITLE\';\n var disqus_url = \'URL\';\n\n \x2F* * * DON\'T EDIT BELOW THIS LINE * * *\x2F\n (function() {\n var dsq = document.createElement(\'script\'); dsq.type = \'text\x2Fjavascript\'; dsq.async = true;\n dsq.src = \'\x2F\x2F\' + disqus_shortname + \'.disqus.com\x2Fembed.js\';\n (document.getElementsByTagName(\'head\')[0] || document.getElementsByTagName(\'body\')[0]).appendChild(dsq);\n })();\n\x3C\x2Fscript\x3E";
-  var disqusScript = " \x3Cdiv id=\"disqus_thread\"\x3E\x3C\x2Fdiv\x3E\n \x3Cscript type=\"text\x2Fjavascript\"\x3E\n \x2F* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * *\x2F\n var disqus_shortname = \'memeizle\'; \x2F\x2F required: replace example with your forum shortname\n\n \x2F* * * DON\'T EDIT BELOW THIS LINE * * *\x2F\n (function() {\n var dsq = document.createElement(\'script\'); dsq.type = \'text\x2Fjavascript\'; dsq.async = true;\n dsq.src = \'\x2F\x2F\' + disqus_shortname + \'.disqus.com\x2Fembed.js\';\n (document.getElementsByTagName(\'head\')[0] || document.getElementsByTagName(\'body\')[0]).appendChild(dsq);\n })();\n \x3C\x2Fscript\x3E\n \x3Cnoscript\x3EPlease enable JavaScript to view the \x3Ca href=\"http:\x2F\x2Fdisqus.com\x2F?ref_noscript\"\x3Ecomments powered by Disqus.\x3C\x2Fa\x3E\x3C\x2Fnoscript\x3E\n \x3Ca href=\"http:\x2F\x2Fdisqus.com\" class=\"dsq-brlink\"\x3Ecomments powered by \x3Cspan class=\"logo-disqus\"\x3EDisqus\x3C\x2Fspan\x3E\x3C\x2Fa\x3E\n ";
+  var disqusScript = "\x3Cscript type=\"text\x2Fjavascript\"\x3E\n \x2F* * * CONFIGURATION VARIABLES: THIS CODE IS ONLY AN EXAMPLE * * *\x2F\n var disqus_shortname = \'memeizle\';\n var disqus_identifier = \'IDENTIFIER\';\n var disqus_title = \'TITLE\';\n var disqus_url = \'URL\';\n\n \x2F* * * DON\'T EDIT BELOW THIS LINE * * *\x2F\n (function() {\n var dsq = document.createElement(\'script\'); dsq.type = \'text\x2Fjavascript\'; dsq.async = true;\n dsq.src = \'\x2F\x2F\' + disqus_shortname + \'.disqus.com\x2Fembed.js\';\n (document.getElementsByTagName(\'head\')[0] || document.getElementsByTagName(\'body\')[0]).appendChild(dsq);\n })();\n\x3C\x2Fscript\x3E";
   return function(scope, element, attr) {
-    // element.append(disqusScript.replace("IDENTIFIER", ).replace("TITLE", ).replace("URL", ));
-    $rootScope.$on('$routeChangeSuccess', function(a,b,c) {
-      element.append(disqusScript);
+    $rootScope.$on('$routeChangeSuccess', function(event, route) {
+      element.append(disqusScript.replace("IDENTIFIER", window.location.hash).replace("TITLE", window.location.hash).replace("URL", window.location.href));
     });
   }
 }])
