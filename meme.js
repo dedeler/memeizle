@@ -29,8 +29,8 @@ $(function() {
 
 angular.module('meme', ['ngRoute'])
 
-.constant('DB_URL', 'https://api.mongolab.com/api/1/databases/memetabani/collections/memeler?apiKey=CKUizEl63826KYWjJrh6GQuRjHIsWpOs&q={"id":{$ID}}')
-.constant('COUNT_URL', 'https://api.mongolab.com/api/1/databases/memetabani/collections/memeler?apiKey=CKUizEl63826KYWjJrh6GQuRjHIsWpOs&c=true')
+.constant('DB_URL', 'https://data-api.mongolab.com/v2/apis/41inadkv90f96/collections/memeler/documents?q={"id":{$ID}}')
+.constant('COUNT_URL', 'https://data-api.mongolab.com/v2/apis/41inadkv90f96/collections/memeler/documents?count=true')
 
 //https://api.mongolab.com/api/1/databases/memetabani/collections/memeler?apiKey=CKUizEl63826KYWjJrh6GQuRjHIsWpOs&c=true
 //https://api.mongolab.com/api/1/databases/memetabani/collections/memeler?apiKey=CKUizEl63826KYWjJrh6GQuRjHIsWpOs&q={"id":{$ID}}
