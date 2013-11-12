@@ -11,6 +11,7 @@
     <title>Meme İzle | Sallanan, hoplayan, zıplayan, baş kaldıran memeler</title>
 
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" media="(max-width: 800px)" href="mobile.css" />
     <link href="meme.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -25,7 +26,7 @@
     <div id="cover"></div>
 
     <div class="row">
-      <div class="col-lg-8 col-lg-offset-2">
+      <div class="col-sm-8 col-sm-offset-2">
         <div class="alert alert-info fade in">
           <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
           <p>Hey! Tek elinizle <strong>boşluk</strong> tuşuna basarak resimleri geçebilirsiniz. Elinizde kahve falan varsa...</p>
@@ -53,9 +54,10 @@
 
       <div class="jumbotron" ng-controller="meme.ctrl.content">
         <div class="row">
-          <div class="col-lg-2">
+          <div class="col-sm-2">
     
-    
+            <div class="ads">
+              
 <!-- START CLIENT.YESADVERTISING CODE -->
 <script language="javascript" type="text/javascript" charset="utf-8">
 cpxcenter_width = 120;
@@ -64,11 +66,11 @@ cpxcenter_height = 600;
 <script language="JavaScript" type="text/javascript" src="//ads.cpxcenter.com/cpxcenter/showAd.php?nid=4&amp;zone=37282&amp;type=banner&amp;sid=28327&amp;pid=27940&amp;subid=">
 </script>
 <!-- END CLIENT.YESADVERTISING CODE -->
-     
-     
+            </div>
+    
           </div>
 
-          <div class="col-lg-8 centered">
+          <div class="col-sm-8 centered">
             <div id="meme">
               <img ng-src="{{memeUrl}}" ng-show="memeUrl && !loading" src="">
               <div class="progress progress-striped active" ng-show="!memeUrl || loading">
@@ -83,8 +85,9 @@ cpxcenter_height = 600;
             </div>
           </div>
 
-          <div class="col-lg-2 ">
-    
+          <div class="col-sm-2 ">
+
+            <div class="ads">
 <!-- START CLIENT.YESADVERTISING CODE -->
 <script language="javascript" type="text/javascript" charset="utf-8">
 var cpxcenter_banner_border = '#ededed';
@@ -97,13 +100,16 @@ cpxcenter_height = 600;
 <script language="JavaScript" type="text/javascript" src="//ads.cpxcenter.com/cpxcenter/showAd.php?nid=4&amp;zone=37468&amp;type=banner&amp;sid=28327&amp;pid=27940&amp;subid=">
 </script>
 <!-- END CLIENT.YESADVERTISING CODE -->
+              
+            </div>
+    
      
           </div>
         </div>
 
         <div class="row">
 
-          <div class="col-lg-4 col-lg-offset-4 centered">
+          <div class="col-sm-4 col-sm-offset-4 centered">
             <button ng-bind="loading ? 'Geliyooor' : 'Başka abla getir'" id="actionBtn" class="btn btn-primary btn-lg" ng-click="anotherSister($event)" ng-disabled="loading">
               Başka abla getir
             </button>
@@ -112,11 +118,11 @@ cpxcenter_height = 600;
       </div>
 
       <div class="row marketing">
-        <div class="col-lg-6">
+        <div class="col-sm-6">
           <h4>Sitede porno içerik yoktur, gönül rahatlığıyla izleyebilirsiniz.</h4>
         </div>
 
-        <div class="col-lg-6">
+        <div class="col-sm-6">
           <h4></h4>
         </div>
       </div>
@@ -126,11 +132,9 @@ cpxcenter_height = 600;
         <script type="text/javascript">
             /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
             var disqus_shortname = 'memeizle'; // required: replace example with your forum shortname
-
-                var disqus_identifier = 'newidentifier';
-    var disqus_url = 'http://example.com/newthread';
-    var disqus_developer = '1';
-
+            var disqus_identifier = 'newidentifier';
+            var disqus_url = 'http://example.com/newthread';
+            var disqus_disable_mobile = true;
     
         var disqus_config = function () { 
           this.language = "tr";
