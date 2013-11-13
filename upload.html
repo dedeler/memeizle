@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="meme">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="meme izle, sallanan, hoplayan, zıplayan, baş kaldıran memeler">
+    <meta name="author" content="Dedeler">
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <title>Meme İzle | Sallanan, hoplayan, zıplayan, baş kaldıran memeler</title>
+
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link href="meme.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <span ng-view></span>
+
+    <form id="shareForm" role="form">
+      <div class="form-group">
+        <label for="url" class="sr-only">Meme Urli</label>
+        <input type="url" class="form-control" id="url" placeholder="Meme Urli" required>
+      </div>
+      <button type="button" class="btn btn-default pull-right">Yakında...</button>
+    </form>
+
+    <div class="container">
+      <div class="header">
+        <h1 class="text-muted inline">Meme İzle</h1>
+        <h3 class="inline">|</h3>
+        <h4 class="inline">Memeler baş kaldırmış kavuşmuyor düğmeler</h4>
+        <button id="memeShare" class="btn btn-default pull-right" data-toggle="popover" title="Meme yolla buraya koyalım">Meme Yolla</button>
+      </div>
+
+      <div class="jumbotron" ng-controller="meme.ctrl.content">
+        <div class="row">
+          <div class="col-lg-2">
+            
+          </div>
+
+          <div class="col-lg-8 centered">
+            <form id="uploadForm" role="form">
+              <div class="form-group">
+                <label for="urlurls" class="sr-only">Meme Urlleri</label>
+                <input type="text" class="form-control" id="apikey" placeholder="API key" required>
+              </div>
+              <div class="form-group">
+                <label for="urlurls" class="sr-only">Meme Urlleri</label>
+                <textarea type="url" class="form-control" id="urls" placeholder="Meme Urlleri" rows="10" required></textarea>
+              </div>
+              <button type="button" id="sendBtn" class="btn btn-default pull-right">Yolla</button>
+            </form>
+          </div>
+
+          <div class="col-lg-2 ">
+
+          </div>
+        </div>
+      </div>
+
+      <div id="footer">
+        <hr>
+        <div class="pull-left">
+          <img id="gnu" class="float-left" width="32" src="gnu.png">
+          <div class="float-right"> This is a Free Software</div>
+          <div class="pull-left"><a target="_blank" href="https://github.com/dedeler/memeizle"> View source &amp; license</a></div>
+        </div>
+        <a id="dedeler" target="_blank" href="http://dedeler.github.io">© Dedeler 2013</a>
+      </div>
+
+    </div> <!-- /container -->
+
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+    $('#sendBtn').click(function() {
+      $.get('https://data-api.mongolab.com/v2/apis/41inadkv90f96/collections/memeler_yeni/documents?count=true', 
+      function(response, status) {
+        var ENDPOINT = 'https://data-api.mongolab.com/v2/apis/'+$('#apikey').val()+'/collections/memeler_yeni/documents';
+        // var ENDPOINT = '';
+        var id = response + 1;
+        var urls = $('#urls').val().split('\n');
+        var data = [];
+        for (var i = 0; i < urls.length; i++) {
+          var url = urls[i];
+          data.push({
+            id: id++,
+            url: url
+          });
+        };
+
+        $.ajax({
+          type: "POST",
+          url: ENDPOINT,
+          data: JSON.stringify(data),
+          dataType: 'json',
+          contentType: 'application/json',
+          success: function(response, status) {
+            alert('Tamamdır')
+          },
+          error: function() {
+            alert('üfff snne be slk :s')
+          }
+        });
+
+      });
+
+    });
+    </script>
+
+  </body>
+</html>
+

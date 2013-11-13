@@ -1,0 +1,62 @@
+#footer{
+  text-align: center;
+}
+
+#footer, #footer a, #footer a:visited {
+  color: gray;
+}
+
+#footer div{
+  font-size: 0.9em;
+}
+
+#dedeler{
+  margin-left: -115px;
+}
+
+.centered{
+  text-align: center;
+}
+
+.header{
+  padding: 20px 0 15px 0;
+}
+
+.inline{
+  display: inline;
+}
+
+#actionBtn{
+  margin-top: 10px;
+}
+
+#meme{
+  min-height: 400px;
+}
+
+#shareForm{
+  display: none;
+}
+
+.popover.bottom {
+  padding-bottom: 10px;
+}
+
+#cover{
+  background-image: url('cover.jpg');
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  background-color: red;
+  position: fixed;
+  display: none;
+}
+
+.slogan{
+  font-style: italic;
+  color: #aaa;
+}
+
+.follow-btn {
+  padding: 10px 0 0 10px;
+}
