@@ -40,22 +40,26 @@ function($scope, $rootScope, $q, $location, db, random) {
       .success(function(response, status) {
         if(status == 200){
           $scope.progressPerCent = 90;
-          $scope.prev = response[0].id;
-          $scope.memeUrl = response[0].url;
-
-          // fuck directives this is the way to go :P
-          $('#meme img')
-          .off('load').on('load', function() {
-            treatAsFinished()
-          })
-          .off('error').on('error', function() {
-            console.error('meme yok');
-            treatAsFinished()
-          });
-          setTimeout(function() {
-            console.warn('meme cok buyuk');
-            treatAsFinished();
-          }, 5000);
+          if(response == null || response.length == 0) {
+            $scope.anotherSister();
+          } else {
+            $scope.prev = response[0].id;
+            $scope.memeUrl = response[0].url;
+  
+            // fuck directives this is the way to go :P
+            $('#meme img')
+            .off('load').on('load', function() {
+              treatAsFinished()
+            })
+            .off('error').on('error', function() {
+              console.error('meme yok');
+              treatAsFinished()
+            });
+            setTimeout(function() {
+              console.warn('meme cok buyuk');
+              treatAsFinished();
+            }, 5000);
+          }
         }
       });
     }
