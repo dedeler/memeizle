@@ -60,3 +60,11 @@
 .follow-btn {
   padding: 10px 0 0 10px;
 }
+
+.opened-mark{
+  position: absolute;
+  font-size: 1rem;
+  color: red;
+  top: 3px;
+  right: 0;
+}
