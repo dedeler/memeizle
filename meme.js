@@ -93,7 +93,7 @@ function($scope, $rootScope, $q, $location, db, random) {
       return false;
     }
     else if(e.which == 120 || e.which == 88){//x or X key
-      $('#cover').toggle();
+    window.location="http://google.com";
     }
   });
 
